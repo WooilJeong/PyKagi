@@ -3,7 +3,7 @@
 <b>Kagi API Python Wrapper</b><br>
 <b>🚀`pip install PyKagi --upgrade`</b>
 
-[![PyPI Latest Release](https://img.shields.io/pypi/v/pykakao.svg)](https://pypi.org/project/pykagi/)
+[![PyPI Latest Release](https://img.shields.io/pypi/v/pykagi.svg)](https://pypi.org/project/pykagi/)
 ![](https://img.shields.io/badge/API-KAGI-orange.svg)
 [![Downloads](https://static.pepy.tech/badge/pykagi)](https://pepy.tech/project/pykagi)  
 
@@ -74,6 +74,6 @@ result
 
 ## Contributors
 
-<a href="https://github.com/wooiljeong/pykakao/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=wooiljeong/pykakao" />
+<a href="https://github.com/wooiljeong/pykagi/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=wooiljeong/pykagi" />
 </a>

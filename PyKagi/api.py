@@ -29,7 +29,6 @@ class UniversalSummarizer:
             }
             response = requests.get(
                 self.base_url, headers=headers, params=params)
-            print(response.url)
         else:
             headers["Content-Type"] = "application/json"
             data = {

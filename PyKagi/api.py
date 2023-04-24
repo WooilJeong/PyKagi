@@ -7,40 +7,37 @@ class UniversalSummarizer:
         self.api_token = api_token
         self.base_url = "https://kagi.com/api/v0/summarize"
 
-    def summarize(self, method="GET", url=None, text=None, engine="agnes", summary_type="summary", target_language=None, cache=True):
+    def summarize(self, url=None, text=None, engine="agnes", summary_type="summary", target_language=None, cache=True):
         if url is None and text is None:
             raise ValueError("Either 'url' or 'text' must be provided.")
         if url is not None and text is not None:
             raise ValueError(
                 "'url' and 'text' are exclusive. Provide only one of them.")
-        if method not in ["GET", "POST"]:
-            raise ValueError("Invalid method. Choose either 'GET' or 'POST'.")
 
         headers = {
             "Authorization": f"Bot {self.api_token}"
         }
 
-        if method == "GET":
+        if text is None:
             headers["Content-Type"] = "application/json"
             params = {
                 "url": url,
-                "text": text,
                 "engine": engine,
                 "summary_type": summary_type,
                 "target_language": target_language,
-                "cache": cache
+                "cache": str(cache).lower()
             }
             response = requests.get(
                 self.base_url, headers=headers, params=params)
-        elif method == "POST":
+            print(response.url)
+        else:
             headers["Content-Type"] = "application/json"
             data = {
-                "url": url,
                 "text": text,
                 "engine": engine,
                 "summary_type": summary_type,
                 "target_language": target_language,
-                "cache": cache
+                "cache": str(cache).lower()
             }
             response = requests.post(self.base_url, headers=headers, json=data)
 

@@ -36,7 +36,7 @@ class UniversalSummarizer:
                 "engine": engine,
                 "summary_type": summary_type,
                 "target_language": target_language,
-                "cache": str(cache).lower()
+                "cache": str(cache).lower(),
             }
             response = requests.post(self.base_url, headers=headers, json=data)
 
@@ -60,11 +60,34 @@ class Search:
 
         params = {
             "q": query,
-            "limit": limit
+            "limit": limit,
         }
 
         response = requests.get(self.base_url, headers=headers, params=params)
 
+        if response.status_code == 200:
+            return response.json()
+        else:
+            raise Exception(
+                f"Request failed with status code {response.status_code}")
+
+class FastGPT:
+
+    def __init__(self, api_token=None):
+        self.api_token = api_token
+        self.base_url = "https://kagi.com/api/v0/fastgpt"
+
+    def fastgpt(self, query, **kwargs):
+        headers = {
+            "Authorization": f"Bot {self.api_token}"
+        }
+        data = {
+            "query": query,
+        }
+        data.update(kwargs)
+
+        response = requests.post(self.base_url, headers=headers, json=data)
+    
         if response.status_code == 200:
             return response.json()
         else:

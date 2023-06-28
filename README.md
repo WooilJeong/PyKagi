@@ -57,7 +57,7 @@ result = US.summarize(
 result
 ```
 
-```json
+```python
 {'meta': {'id': '703a85c1-4548-4803-8309-2cc0481eaf60',
   'node': 'asia-southeast1',
   'ms': 0,
@@ -91,7 +91,7 @@ result = US.summarize(
 result
 ```
 
-```json
+```python
 {'meta': {'id': '6cb208c8-ec06-4bcd-a2f7-cdf5d5ee9feb',
   'node': 'asia-southeast1',
   'ms': 0,
@@ -115,7 +115,7 @@ result = FGPT.fastgpt(
 result
 ```
 
-```json
+```python
 {'meta': {'id': '8ee670fe-0dd4-469b-a076-2a0b0d410e66',
   'node': 'asia-southeast1',
   'ms': 0,
